@@ -45,10 +45,7 @@ public class WelcomeServlet extends HttpServlet {
 		Cookie[] cookies = request.getCookies();
 		
 		String cookieValue = null;
-		System.out.println("Cookie List");
-		for(Cookie cookie : cookies){
-		    
-				System.out.println(cookie.getName()+"  "+cookie.getValue());
+		for(Cookie cookie : cookies){				
 			if("test_cookie".equals(cookie.getName())){
 		    	cookieValue = cookie.getValue();
 		    }

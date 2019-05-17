@@ -54,18 +54,14 @@ public class LoginServlet extends HttpServlet {
 		if(userName.equals(this.un)) {
 			if(password.equals(this.pw)) {
 				String token = generaeCSRFTokenX();
-				//String sessionId = session.getId();
-				//CSRFToken.sessionId = sessionId;
-				//CSRFToken.token = token;
-				
+								
 				Cookie Kcookie =  this.createCookie("test_cookie", token );
 				response.addCookie(Kcookie);				
 				
 				request.setAttribute("csrfToken", token);
 				request.setAttribute("cookie", Kcookie);
 				request.getRequestDispatcher("Home.jsp").forward(request, response);
-			    //response.sendRedirect("Home.jsp");
-				
+			    				
 			}else {
 				JOptionPane.showMessageDialog(null, "Invalid Password");
 				response.sendRedirect("Login.jsp");
