@@ -31,6 +31,7 @@ button:hover {
   opacity: 0.8;
 }
 </style>
+
 </head>
 <body>
 
@@ -39,8 +40,28 @@ button:hover {
 <H1>Home </H1>
 <%= request.getAttribute("csrfToken") %>
 <form action="WelcomeServlet" method="POST">
-<input name="token" type ="hidden" value=<%= request.getAttribute("csrfToken") %>/>
+
+<input name="token" type ="hidden" id="sar" name="sar"/>
+
+<script type="text/javascript">
+ var Cookies = document.cookie;
+ var CookieJar = Cookies.split(";");
+ CookieJar.forEach(CookieCase);
+ 
+ function CookieCase(value, index){
+	 
+	 CookieCrumbs = value.split("=");
+	 if(CookieCrumbs[0]=="test_cookie"){
+		 
+		var Cookie_token = CookieCrumbs[1];
+		document.getElementById("sar").value = Cookie_token;		
+	 }
+ }
+</script>
+
+
 <h4>Type something</h4><input type = "text"/>
+
 <button type = "submit">Submit </button>
 </form>
 </div>

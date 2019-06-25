@@ -54,7 +54,6 @@ public class WelcomeServlet extends HttpServlet {
 	        //String storedToken = "Hi";//CSRFToken.getToken(session.getId());
 	        String token = request.getParameter("token");
 	       
-	        System.out.println("Dead duck");
 	        System.out.println(cookieValue+"   "+token);
 	        
 	        token = token.replace("/","");
